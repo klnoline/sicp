@@ -44,5 +44,4 @@ tests = TestList
     , TestCase (assertEqual "third solution"  (f''  1 2 3) 13)
     , TestCase (assertEqual "fourth solution" (f''' 1 2 3) 13) ]
 
-main = do
-    runTestTT tests
+main = runTestTT tests
