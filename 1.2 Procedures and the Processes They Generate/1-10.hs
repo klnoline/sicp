@@ -11,13 +11,13 @@ ackermann x y
 
 -- What are the values of the following expressions?
 
-a 1 10
+ackermann 1 10
 -- 1024
 
-a 2 4
+ackermann 2 4
 -- 65536
 
-a 3 3
+ackermann 3 3
 -- 65536
 
 
