@@ -5,7 +5,7 @@
 #lang scheme
 
 (define (fast-expt b n)
-    (define (square x) (* x x)) 
+    (define (square x) (* x x))
     (define (iter a b n)
         (cond ((= n 0) a)
               ((even? n) (iter a (square b) (/ n 2)))
