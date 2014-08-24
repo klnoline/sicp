@@ -17,7 +17,7 @@ sum' term a next b = iter a 0  where
 
 -- Test
 
-sumIntegers a b = sum' identity a succ b  where
+sumIntegers a b = sum' identity a (+1) b  where
     identity x = x
 
 main = print $ sumIntegers 1 10
