@@ -13,8 +13,19 @@ function timedPrimeTest (n) {
     })(n, Date.now());
 }
 
+function timedPrimeTest (n, now) {
+    return (function (n, startTime) {
+        if (isPrime(n)) {
+            reportPrime(performance.now() - startTime, n);
+            return true;
+        } else {
+            return false;
+        };
+    })(n, performance.now());
+}
+
 function reportPrime (elapsedTime, n) {
-    console.log(n + ' *** ' + elapsedTime/1000 + 's');
+    console.log(n + ' *** ' + elapsedTime + 's');
 }
 
 
@@ -66,18 +77,10 @@ function searchForPrimes (start, end, count) {
 
 
 // Standard JavaScript Date.now() accuracy isn't sufficient for this task.
+// performance.now() is more precise and available in Chrome (but not in node.js and in Safari)
+// timings are different from haskell and scheme — if we increase n by 10^4 we have √10^3 grow
 
 searchForPrimes(1000, 10000, 3);
-// 1009 *** 0s
-// 1013 *** 0s
-// 1019 *** 0s
-
 searchForPrimes(10000, 100000, 3);
-// 10007 *** 0s
-// 10009 *** 0s
-// 10037 *** 0s
-
 searchForPrimes(100000, 1000000, 3);
-// 100003 *** 0s
-// 100019 *** 0s
-// 100043 *** 0s
+searchForPrimes(10000000, 100000000, 3);
